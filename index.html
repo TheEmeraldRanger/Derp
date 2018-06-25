@@ -1,0 +1,61 @@
+<html>
+<head>
+    <style>
+        #box {
+         width: 100px;
+         height: 100px;
+         position: absolute;
+         left: 200px; 
+         top: 200px; 
+         image-resolution: 200px 200px;
+         }
+        .bgi {
+         image-resolution: 2000px 2000px;
+         float: left;
+         position:absolute;
+        }
+        #img {
+            width: 120px;
+            height: 120px;
+        }
+    </style>
+    <script>
+    'use strict';
+        let boxTop = 200;
+        let boxLeft = 200;
+        document.addEventListener('keydown', (event) => {
+            const keyName = event.key;
+            console.log('keydown event\n\n' + 'key: ' + keyName);
+
+            if(keyName === "ArrowDown"){
+                boxTop = boxTop + 25
+            }
+            if(keyName === "ArrowUp"){
+                boxTop = boxTop - 25
+            }
+            if(keyName === "ArrowRight"){
+                boxLeft = boxLeft + 25
+            }
+            if(keyName === "ArrowLeft"){
+                boxLeft = boxLeft - 25
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="bgi">
+        <image src = "testimage.jpg"></image>
+    </div>
+    <div id = "box">
+        <a href = "https://www.pringles.com/us/home.html">
+        <image src = "testimage.jpg" id="img"></image>
+        </a>
+    </div>
+    <script>
+        document.addEventListener('keydown', (event) => {
+            document.getElementById("box").style.top = boxTop + "px";
+            document.getElementById("box").style.left = boxLeft + "px";
+        });
+    </script>
+</body>
+</html>
